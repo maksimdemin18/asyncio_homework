@@ -65,3 +65,22 @@ skin_color
 скрипт миграции базы данных
 скрипт загрузки данных из API в базу
 В базу должны быть загружены все персонажи
+
+Решение:
+
+Подготовка базы 
+Создать базу данных и применить миграцию: 
+psql -U postgres -d starwars -f create_people.sql
+
+Установка зависимостей 
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+Запуск загрузки 
+export DATABASE_DSN='postgresql://postgres:postgres@localhost:5432/starwars'
+python load_people.py
+
+Проверка 
+psql -U postgres -d starwars -c "SELECT COUNT(*) FROM people;"
+psql -U postgres -d starwars -c "SELECT id, name, gender, birth_year FROM people ORDER BY id LIMIT 10;"
