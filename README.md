@@ -69,22 +69,22 @@ skin_color
 ### Решение:
 
 Подготовка базы 
-Создать базу данных и применить миграцию: 
+Создать базу данных и применить миграцию [create_people.sql](create_people.sql): 
 ```
-psql -U postgres -d starwars -f [create_people.sql](create_people.sql)
+psql -U postgres -d starwars -f create_people.sql
 ```
 
-Установка зависимостей 
+Установка зависимостей [requirements.txt](requirements.txt)
 ```
 python3 -m venv venv
 source venv/bin/activate
-pip install -r [requirements.txt](requirements.txt)
+pip install -r requirements.txt
 ```
 
-Запуск загрузки 
+Запуск загрузки [load_people.py](load_people.py)
 ```
 export DATABASE_DSN='postgresql://postgres:postgres@localhost:5432/starwars'
-python [load_people.py](load_people.py)
+python load_people.py
 ```
 
 Проверка 
