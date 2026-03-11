@@ -71,20 +71,20 @@ skin_color
 Подготовка базы 
 Создать базу данных и применить миграцию: 
 ```
-psql -U postgres -d starwars -f create_people.sql
+psql -U postgres -d starwars -f [create_people.sql](create_people.sql)
 ```
 
 Установка зависимостей 
 ```
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -r [requirements.txt](requirements.txt)
 ```
 
 Запуск загрузки 
 ```
 export DATABASE_DSN='postgresql://postgres:postgres@localhost:5432/starwars'
-python load_people.py
+python [load_people.py](load_people.py)
 ```
 
 Проверка 
